@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: skyblue;
+}
+
+h3 {
+  text-align: center;
+  margin: 0 auto;
+  align-self: center;
+}
+
+/* Style the header */
+.header {
+  grid-area: header;
+  background-color: lightgrey;
+  text-align: center;
+  font-size: 2em;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+/* The grid container */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header header header header"
+    "left left middle middle right right"
+    "party party party party party party";
+  grid-column-gap: 10px;
+  justify-content: space-evenly;
+  justify-items: center;
+  align-content: space-evenly;
+  align-items: center;
+}
+
+.left,
+.middle,
+.right {
+  padding: 10px;
+  height: 300px;
+}
+
+.left {
+  grid-area: left;
+  width: 250px;
+  height: 315px;
+  padding: 100px;
+}
+
+.middle {
+  grid-area: middle;
+  width: 30em;
+  padding-bottom: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
+  position: relative;
+}
+
+.right {
+  grid-area: right;
+  width: 250px;
+  height: 315px;
+  padding: 100px;
+}
+
+.party {
+  grid-area: party;
+  display: flex;
+
+  margin: auto;
+}
+
+.party-list {
+  list-style-type: none;
+  width: 50%;
+  display: flex;
+  margin: 0 auto;
+}
+
+.party-item {
+  display: inline-block;
+  width: auto;
+  margin-bottom: 2px;
+  background: yellow;
+  padding-left: 0;
+  margin-left: 0;
+  height: 100px;
+  width: 100px;
+}
+
+.button {
+  background-color: lightgrey;
+  border: none;
+  color: black;
+  font-size: 20px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  float: right;
+  margin: 2em;
+}
+
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-areas:
+      "header header header header header header"
+      "middle middle middle middle left left"
+      "party party party party party party";
+  }
+
+  .middle {
+    display: flex;
+    justify-content: left;
+  }
+
+  .right {
+    display: none;
+    visibility: hidden;
+  }
+
+  .party-list {
+    padding: auto;
+    margin: 0.1em;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-areas:
+      "header header header header header header"
+      "middle middle middle middle middle middle"
+      "left left left left left left"
+      "party party party party party party";
+
+    height: 100vh;
+  }
+
+  .header {
+    height: 50px;
+    font-size: small;
+  }
+  .left,
+  .middle,
+  .right {
+    width: 100%;
+    margin: 0;
+  }
+
+  .left {
+    height: 25%;
+    padding: 200px;
+  }
+
+  .right {
+    display: none;
+    visibility: hidden;
+  }
+
+  .button {
+    width: 50%;
+    float: none;
+    margin: 0 auto;
+    padding: auto;
+    display: inline-block;
+    text-align: center;
+  }
+}
